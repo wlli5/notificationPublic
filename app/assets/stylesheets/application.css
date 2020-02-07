@@ -13,6 +13,6 @@
  *= require_tree .
  *= require_self
  */
-th.hilite {
+th{
   background-color: yellow;
 }
