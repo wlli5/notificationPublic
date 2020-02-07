@@ -25,6 +25,7 @@ class MoviesController < ApplicationController
     end
   end
 
+
   def new
     # default: render 'new' template
   end
@@ -54,3 +55,6 @@ class MoviesController < ApplicationController
   end
 
 end
+class Movie
+    put ['G','PG','PG-13','R']
+  end
