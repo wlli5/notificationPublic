@@ -55,6 +55,4 @@ class MoviesController < ApplicationController
   end
 
 end
-class Movie
-    put ['G','PG','PG-13','R']
-  end
+
