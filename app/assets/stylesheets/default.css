@@ -1,6 +1,5 @@
 
 a {
-  background: transparent;
   color: maroon;
   text-decoration: underline;
   font-weight: bold;
@@ -8,7 +7,6 @@ a {
 h2 {
   color: maroon;
   font-size: 200%;
-  display: block;
   border-bottom: 1px solid DarkSlateGrey;
 }
 table#movies {
@@ -24,8 +22,6 @@ table#movies th {
 table#movies th.hilite {
   background-color: yellow;
 }
-
-
 form label {
   line-height: 25px;
   display: block;
