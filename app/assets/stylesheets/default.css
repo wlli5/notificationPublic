@@ -27,15 +27,11 @@ table#movies th.hilite {
   background-color: yellow;
 }
 
-table#movies th, table#movies td {
-  padding: 4px;
-  text-align: left;
-}
+
 #notice #warning {
   padding: 4px;
   margin: 1em 0;
   background: rosybrown;
-
 }
 form label {
   line-height: 25px;
