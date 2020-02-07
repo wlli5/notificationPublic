@@ -17,10 +17,10 @@ class MoviesController < ApplicationController
 
     if sort == "title"
       @movies = @movies.order(:title)
-      @css_title = "hilite"
+     @css_Movie_Title = "hilite"
     elsif sort == "release_date"
       @movies = @movies.order(:release_date)
-      @css_release_date = "hilite"
+      @css_Release_Date = "hilite"
     end
   end
 
