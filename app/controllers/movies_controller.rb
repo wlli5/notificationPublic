@@ -15,12 +15,12 @@ class MoviesController < ApplicationController
     @movies = Movie.all
     sort = params[:sort]
 
-    if sort == "title"
-      @movies = @movies.order(:title)
-     @css_Movie_Title = "hilite"
-    elsif sort == "release_date"
+ if sort == "Release_Date"
       @movies = @movies.order(:release_date)
       @css_Release_Date = "hilite"
+    elsif sort == "Movie_Title"
+      @movies = @movies.order(:title)
+     @css_Movie_Title = "hilite"
     end
   end
 
