@@ -19,7 +19,8 @@ class MoviesController < ApplicationController
     r_session = !rate.present? && session[:ratings].present? 
     save = Hash.new
       if r_session && s_session
-        save = {:ratings=>session[:ratings], :sort=>session[:sort]}
+        save = {:ratings=>session[:ratings]} 
+        save = {:sort=>session[:sort]}
       elsif r_session && !s_session
         save = {:ratings=>session[:ratings]}
       elsif s_session && !r_session
