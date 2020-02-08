@@ -31,8 +31,6 @@ class MoviesController < ApplicationController
       rate = session[:ratings]
       sorted =  session[:sort]
     end
-    rate = session[:ratings]
-      sorted =  session[:sort]
     if rate.present?
       @selected_ratings =  rate.keys
       @movies = Movie.where(rating: rate.keys)
@@ -47,8 +45,10 @@ class MoviesController < ApplicationController
     @css_Movie_Title = "hilite"
       @movies = @movies.order(:title)
     end
-  session[:ratings] = params[:ratings]
-  session[:sort] = params[:sort]
+    
+  session[:ratings] = ratings
+  session[:sort] = sorted
+  
   end
 
   def new
