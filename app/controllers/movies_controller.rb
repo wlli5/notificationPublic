@@ -15,8 +15,8 @@ class MoviesController < ApplicationController
     @movies = Movie.all
     rate = params[:ratings]
     sorted = params[:sort]
-    s_session = !sorted.present? && session[:sort].present?
-    r_session = !rate.present? && session[:ratings].present? 
+    s_session = !params[:sort].present? && session[:sort].present?
+    r_session = !params[:ratings].present? && session[:ratings].present? 
     save = Hash.new
       if r_session && s_session
         save = {:ratings=>session[:ratings]} 
