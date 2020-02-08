@@ -46,8 +46,8 @@ class MoviesController < ApplicationController
       @movies = @movies.order(:title)
     end
     
-  session[:ratings] = ratings
-  session[:sort] = sorted
+  session[:ratings] = params[:ratings]
+  session[:sort] = params[:sort]
   
   end
 
