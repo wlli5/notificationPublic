@@ -18,13 +18,14 @@ class MoviesController < ApplicationController
     save = Hash.new
     s_session = session[:sort].present? && !params[:sort].present? 
     r_session = session[:ratings].present? && !params[:ratings].present? 
+    
     if r_session || s_session
       if r_session && s_session
         save = {:ratings=>session[:ratings]}
         save = {:sort=>session[:sort]}
-      elsif s_session && !r_session
+      elsif s_session
         save = {:sort=>session[:sort]}
-      elsif r_session && !s_session
+      else 
         save = {:ratings=>session[:ratings]}
       end
       flash.keep
