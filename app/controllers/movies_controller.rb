@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
         hash = {:sort=>session[:sort]}
       end
       flash.keep
-      redirect_to movies_path(params.merge(hash))
+      redirect_to movies_path(params[:sort] = session[:sort],params[:ratings] = session[:ratings])
     end
     if rate.present?
       @selected_ratings =  rate.keys
