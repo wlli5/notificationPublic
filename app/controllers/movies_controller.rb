@@ -21,15 +21,14 @@ class MoviesController < ApplicationController
     if use_ratings_session || use_sort_session
       if use_ratings_session && use_sort_session
      
-        session[:ratings] = :ratings
-        session[:sort] = :sort
+        session[:ratings] = params[:ratings]
+        session[:sort] = params[:sort]
       elsif use_ratings_session
-        session[:ratings] = :ratings
+        session[:ratings] = params[:ratings]
       else 
-        session[:sort] = :sort
+        session[:sort] = params[:sort]
       end
       flash.keep
-      redirect_to movies_path(params.merge(hash))
     end
     if rate.present?
       @selected_ratings =  rate.keys
