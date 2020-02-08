@@ -9,12 +9,26 @@ class MoviesController < ApplicationController
     @movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
   @all_ratings = Movie.ratings
-  end
+  end 
   
   def index
-    
+    @all_ratings = Movie.all_ratings
     @movies = Movie.all
-    
+    sort = params[:sort]
+    if params[:ratings].present?
+      @selected_ratings =  params[:ratings].keys
+      @movies = Movie.where(rating: params[:ratings].keys)
+    else
+      @selected_ratings = @all_ratings
+      @movies = Movie.all
+    end
+ if sort == "Release_Date"
+    @css_Release_Date = "hilite"
+      @movies = @movies.order(:release_date)
+    elsif sort == "Movie_Title"
+    @css_Movie_Title = "hilite"
+      @movies = @movies.order(:title)
+    end
   end
 
 
