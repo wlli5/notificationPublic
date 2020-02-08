@@ -20,7 +20,6 @@ class MoviesController < ApplicationController
     
     if use_ratings_session || use_sort_session
       if use_ratings_session && use_sort_session
-     
         session[:ratings] = params[:ratings]
         session[:sort] = params[:sort]
       elsif use_ratings_session
@@ -29,6 +28,8 @@ class MoviesController < ApplicationController
         session[:sort] = params[:sort]
       end
       flash.keep
+      params[:sort] = session[:sort]
+      params[:ratings] = session[:ratings]
     end
     if rate.present?
       @selected_ratings =  rate.keys
