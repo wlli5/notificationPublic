@@ -28,9 +28,9 @@ class MoviesController < ApplicationController
         session[:sort] = params[:sort]
       end
       flash.keep
+    end
       params[:sort] = session[:sort]
       params[:ratings] = session[:ratings]
-    end
     if rate.present?
       @selected_ratings =  rate.keys
       @movies = Movie.where(rating: rate.keys)
@@ -38,15 +38,15 @@ class MoviesController < ApplicationController
       @selected_ratings = @all_ratings
       @movies = Movie.all
     end
- if sorted == "Release_Date"
+    if sorted == "Release_Date"
     @css_Release_Date = "hilite"
       @movies = @movies.order(:release_date)
     elsif sorted == "Movie_Title"
     @css_Movie_Title = "hilite"
       @movies = @movies.order(:title)
     end
-    session[:ratings] = params[:ratings]
-    session[:sort] = params[:sort]
+  session[:ratings] = params[:ratings]
+  session[:sort] = params[:sort]
   end
 
   def new
