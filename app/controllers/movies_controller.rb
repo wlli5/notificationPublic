@@ -29,6 +29,8 @@ class MoviesController < ApplicationController
     @css_Movie_Title = "hilite"
       @movies = @movies.order(:title)
     end
+    session[:ratings] = params[:ratings]
+    session[:sort] = params[:sort]
   end
 
   def new
