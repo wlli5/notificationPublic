@@ -30,8 +30,9 @@ class MoviesController < ApplicationController
       flash.keep
       rate = session[:ratings]
       sorted =  session[:sort]
-     
     end
+    rate = session[:ratings]
+      sorted =  session[:sort]
     if rate.present?
       @selected_ratings =  rate.keys
       @movies = Movie.where(rating: rate.keys)
