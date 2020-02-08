@@ -16,17 +16,17 @@ class MoviesController < ApplicationController
     rate = params[:ratings]
     sorted = params[:sort]
     save = Hash.new
-    r_session = !params[:ratings].present? && session[:ratings].present? 
-    s_session = !params[:sort].present? && session[:sort].present?
+    s_session = session[:sort].present? && !params[:sort].present? 
+    r_session = session[:ratings].present? && !params[:ratings].present? 
     
     if r_session || s_session
       if r_session && s_session
         save = {:ratings=>session[:ratings]}
         save = {:sort=>session[:sort]}
-      elsif r_session
-        save = {:ratings=>session[:ratings]}
-      else 
+      elsif s_session
         save = {:sort=>session[:sort]}
+      else 
+        save = {:ratings=>session[:ratings]}
       end
       flash.keep
       redirect_to movies_path(params.merge(save))
