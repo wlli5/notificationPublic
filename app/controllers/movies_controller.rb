@@ -13,18 +13,17 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
     @movies = Movie.all
+    s_session = session[:sort].present? && !params[:sort].present? 
+    r_session = session[:ratings].present? && !params[:ratings].present?
     rate = params[:ratings]
     sorted = params[:sort]
     save = Hash.new
-    s_session = session[:sort].present? && !params[:sort].present? 
-    r_session = session[:ratings].present? && !params[:ratings].present? 
-    
       if r_session && s_session
         save = {:ratings=>session[:ratings], :sort=>session[:sort]}
-      elsif r_session && !s_session
-        save = {:ratings=>session[:ratings]}
       elsif s_session && !r_session
         save = {:sort=>session[:sort]}
+      elsif r_session && !s_session
+        save = {:ratings=>session[:ratings]}
       end
       if r_session || s_session
       flash.keep
