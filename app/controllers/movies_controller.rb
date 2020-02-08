@@ -30,7 +30,6 @@ class MoviesController < ApplicationController
       flash.keep
       redirect_to movies_path(params.merge(hash))
     end
-    end
     if rate.present?
       @selected_ratings =  rate.keys
       @movies = Movie.where(rating: rate.keys)
