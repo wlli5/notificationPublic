@@ -22,11 +22,11 @@ class MoviesController < ApplicationController
       @selected_ratings = @all_ratings
       @movies = Movie.all
     end
- if sort == "Release_Date"
-    @css_Release_Date = "hilite"
+ if sort == "release_date"
+    @css_release_date = "hilite"
       @movies = @movies.order(:release_date)
-    elsif sort == "Movie_Title"
-    @css_Movie_Title = "hilite"
+    elsif sort == "title"
+    @css_title = "hilite"
       @movies = @movies.order(:title)
     end
   end
